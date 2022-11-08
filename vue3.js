@@ -15,7 +15,7 @@ function _createApp(options) {
             } else {
                 this.data = options.data();
             }
-            new Proxy(this, {
+            this.proxy = new Proxy(this, {
                 get(target, key) {
                     if (key in target.setupState) {
                         return target.setupState[key];
